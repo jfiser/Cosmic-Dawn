@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>cosmicDawn4</title>
+<script src="./jquery-1.10.2.js"></script>
+<script src="./skrollr.min.js"></script>
+
+<style>
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body, html
+{
+	width:100%;
+	height:100%;
+	background-color:black;
+}
+.gradientBurst
+{
+	top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin:auto;
+	position:fixed;
+	display:none;
+}
+
+#helium-bkg
+{
+	width:100%;
+	height:100%;
+	position:fixed;
+}
+#inflation-bkg
+{
+	width:100%;
+	height:100%;
+	position:fixed;
+}
+.helium{
+	position:fixed;
+
+}
+#firstSceneHolder
+{
+	left:25%;
+	top:30%;
+	
+	position:fixed;
+}
+#cosmicQuestionsHolderHolder
+{
+	width:37.5em;
+	height:10em;
+	overflow: hidden;
+	position:relative;
+}
+#cosmicQuestionsHolder
+{
+	width:37.5em;
+	position:absolute;
+}
+#cosmicTxt
+{
+	left: 0%;
+	top: 0%;
+	font-size: 4.2em;
+	color:white;
+	position:absolute;
+	font-family:Helvetica,Arial,sans-serif;
+}
+#cosmicQuestionsHeader
+{
+	left:5%;
+	top:.65em;
+	font-size: 5.7em;
+	color:white;
+	position:absolute;
+	font-family:Helvetica,Arial,sans-serif;
+}
+#cosmicQuestionsRedLine
+{
+	right:0%;
+	top:10em;
+	width:200%;
+	border-bottom:1px solid red;
+	position:absolute;
+}
+#cosmicQuestionsTxtHolder
+{
+	width:37.5em;
+	height:29em;
+	overflow: hidden;
+	position:relative;
+}
+#cosmicQuestionsTxt
+{
+	left:5%;
+	width: 90%;
+	color:white;
+	font-size: 1.3em;
+	position:absolute;
+	font-family:Helvetica,Arial,sans-serif;
+}
+
+#secondSceneHolder
+{
+	left:0;
+	right:0;
+	top:10%;
+	width:49em;
+	height:17em;
+	margin:auto;
+	position:fixed;
+	color:white;
+	font-family:Helvetica,Arial,sans-serif;
+	text-align:center;
+}
+#howWillItEndCover
+{
+	top:0%;
+	height:4em;
+	background-color:black;
+	position:absolute;
+}
+#howWillItEndTxtHolder
+{
+	top:2.3em;
+	width:49em;
+	height:10em;
+	margin-top: .8em;
+	overflow:hidden;
+	position:absolute;
+}
+#howWillItEnd
+{
+	font-size:2.3em;
+}
+#howWillItEndTxt
+{
+	font-size:1.1em;
+	position:absolute;
+}
+#topBar
+{
+	width:100%;
+	height: 7em;
+	background-color:black;
+	opacity:.92;
+	position:fixed;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!--<video id="videoPlayer1" data-_video1start-1=" >
+				<source src="./brain_new.mp4" type="video/mp4">
+				<source src="./brain_new.webm" type="video/webm">
+				Your browser does not support the <code>video</code> element.
+</video>
+-->
+
+
+
+<img id="helium-bkg" src="testAssets/helium_bkg.jpg"  data-_heliummolestart="opacity:0;" data-_heliummolestart-900="opacity:1;"/>
+<img id="inflation-bkg" src="testAssets/inflation_bkg.jpg"  data-_heliummolestart-3200="opacity:0;" data-_heliummolestart-3900="opacity:1;"/>
+
+
+
+<img class="helium" src="testAssets/helium1.png"  data-_heliummolestart="transform:scale(0) rotate(0deg); left:34%; top:32%" 
+												data-_heliummolestart-2400="transform:scale(5) rotate(333deg); left:-65%; top:60%" />
+
+<img class="helium" src="testAssets/helium1.png"  data-_heliummolestart="transform:scale(0) rotate(0deg); left:44%; top:22%" 
+												data-_heliummolestart-2300="transform:scale(5) rotate(333deg); left:105%; top:120%" />
+
+<img class="helium" src="testAssets/helium3.png"  data-_heliummolestart-200="transform:scale(0) rotate(0deg); left:54%; top:42%" 
+												data-_heliummolestart-3800="transform:scale(8) rotate(-233deg); left:-55%; top:-120%" />
+
+<img class="helium" src="testAssets/helium4.png"  data-_heliummolestart-100="transform:scale(0) rotate(0deg); left:54%; top:32%" 
+												data-_heliummolestart-2900="transform:scale(6) rotate(533deg); left:-141%; top:23%" />
+
+<img class="helium" src="testAssets/helium2.png"  data-_heliummolestart="transform:scale(0) rotate(0deg); left:44%; top:42%" 
+												data-_heliummolestart-2900="transform:scale(9) rotate(233deg); left:55%; top:-220%" />
+
+<img class="helium" src="testAssets/helium3.png"  data-_heliummolestart-200="transform:scale(0) rotate(0deg); left:50%; top:42%" 
+												data-_heliummolestart-2300="transform:scale(8) rotate(-533deg); left:155%; top:190%" />
+
+<img class="helium" src="testAssets/helium3.png"  data-_heliummolestart-200="transform:scale(0) rotate(0deg); left:54%; top:55%" 
+												data-_heliummolestart-1000="transform:scale(8) rotate(-233deg); left:55%; top:180%" />
+
+<img class="helium" src="testAssets/helium2.png"  data-_heliummolestart="transform:scale(0) rotate(0deg); left:34%; top:12%" 
+												data-_heliummolestart-3000="transform:scale(6) rotate(-233deg); left:55%; top:220%" />
+
+<img class="helium" src="testAssets/helium5.png"  data-_heliummolestart-200="transform:scale(0) rotate(0deg); left:44%; top:42%" 
+												data-_heliummolestart-3000="transform:scale(5) rotate(333deg); left:-65%; top:60%" />
+
+<img class="helium" src="testAssets/helium1.png"  data-_heliummolestart-1000="transform:scale(0) rotate(0deg); left:44%; top:52%" 
+												data-_heliummolestart-3600="transform:scale(5) rotate(333deg); left:145%; top:50%" />
+
+<img class="helium" src="testAssets/helium3.png"  data-_heliummolestart-800="transform:scale(0) rotate(0deg); left:64%; top:32%" 
+												data-_heliummolestart-3200="transform:scale(8) rotate(-233deg); left:-155%; top:-120%" />
+
+<img class="helium" src="testAssets/helium4.png"  data-_heliummolestart-800="transform:scale(0) rotate(0deg); left:54%; top:32%" 
+												data-_heliummolestart-2300="transform:scale(6) rotate(533deg); left:141%; top:23%" />
+
+<img class="helium" src="testAssets/helium2.png"  data-_heliummolestart-600="transform:scale(0) rotate(0deg); left:44%; top:42%" 
+												data-_heliummolestart-2900="transform:scale(9) rotate(233deg); left:55%; top:-320%" />
+
+<img class="helium" src="testAssets/helium3.png"  data-_heliummolestart-700="transform:scale(0) rotate(0deg); left:50%; top:42%" 
+												data-_heliummolestart-3300="transform:scale(8) rotate(-533deg); left:55%; top:190%" />
+
+<img class="helium" src="testAssets/helium5.png"  data-_heliummolestart-800="transform:scale(0) rotate(0deg); left:34%; top:55%" 
+												data-_heliummolestart-3600="transform:scale(8) rotate(-233deg); left:55%; top:180%" />
+
+<img class="helium" src="testAssets/helium2.png"  data-_heliummolestart="transform:scale(0) rotate(0deg); left:34%; top:12%" 
+												data-_heliummolestart-1000="transform:scale(6) rotate(-233deg); left:-55%; top:120%" />		
+
+
+
+
+
+
+<img class="helium" src="testAssets/inflation1.png"  data-_inflationstart="transform:scale(0) rotate(0deg); left:34%; top:32%" 
+												data-_inflationstart-2400="transform:scale(8) rotate(1333deg); left:-65%; top:60%" />
+
+<img class="helium" src="testAssets/inflation1.png"  data-_inflationstart="transform:scale(0) rotate(0deg); left:44%; top:22%" 
+												data-_inflationstart-2300="transform:scale(9) rotate(2333deg); left:105%; top:120%" />
+
+<img class="helium" src="testAssets/inflation3.png"  data-_inflationstart-200="transform:scale(0) rotate(0deg); left:54%; top:42%" 
+												data-_inflationstart-3800="transform:scale(9) rotate(-733deg); left:-55%; top:-120%" />
+
+<img class="helium" src="testAssets/inflation4.png"  data-_inflationstart-100="transform:scale(0) rotate(0deg); left:54%; top:32%" 
+												data-_inflationstart-2900="transform:scale(10) rotate(733deg); left:-141%; top:23%" />
+
+<img class="helium" src="testAssets/inflation2.png"  data-_inflationstart="transform:scale(0) rotate(0deg); left:44%; top:42%" 
+												data-_inflationstart-2900="transform:scale(11) rotate(1533deg); left:55%; top:-220%" />
+
+<img class="helium" src="testAssets/inflation5.png"  data-_inflationstart-200="transform:scale(0) rotate(0deg); left:50%; top:42%" 
+												data-_inflationstart-2300="transform:scale(11) rotate(-533deg); left:155%; top:190%" />
+
+<img class="helium" src="testAssets/inflation3.png"  data-_inflationstart-200="transform:scale(0) rotate(0deg); left:54%; top:55%" 
+												data-_inflationstart-1000="transform:scale(11) rotate(-1233deg); left:55%; top:180%" />
+
+<img class="helium" src="testAssets/inflation2.png"  data-_inflationstart="transform:scale(0) rotate(0deg); left:34%; top:12%" 
+												data-_inflationstart-3000="transform:scale(12) rotate(-1233deg); left:55%; top:220%" />
+
+<img class="helium" src="testAssets/inflation1.png"  data-_inflationstart-200="transform:scale(0) rotate(0deg); left:44%; top:42%" 
+												data-_inflationstart-3000="transform:scale(12) rotate(1333deg); left:-65%; top:60%" />
+
+<img class="helium" src="testAssets/inflation5.png"  data-_inflationstart-1000="transform:scale(0) rotate(0deg); left:44%; top:52%" 
+												data-_inflationstart-3600="transform:scale(12) rotate(2333deg); left:245%; top:50%" />
+
+<img class="helium" src="testAssets/inflation3.png"  data-_inflationstart-100="transform:scale(0) rotate(0deg); left:64%; top:32%" 
+												data-_inflationstart-3200="transform:scale(12) rotate(-933deg); left:-155%; top:-120%" />
+
+<img class="helium" src="testAssets/inflation4.png"  data-_inflationstart-100="transform:scale(0) rotate(0deg); left:54%; top:32%" 
+												data-_inflationstart-2300="transform:scale(13) rotate(533deg); left:141%; top:23%" />
+
+<img class="helium" src="testAssets/inflation2.png"  data-_inflationstart-600="transform:scale(0) rotate(0deg); left:44%; top:42%" 
+												data-_inflationstart-2900="transform:scale(13) rotate(1233deg); left:55%; top:-320%" />
+
+<img class="helium" src="testAssets/inflation3.png"  data-_inflationstart-200="transform:scale(0) rotate(0deg); left:50%; top:42%" 
+												data-_inflationstart-3300="transform:scale(9) rotate(-533deg); left:55%; top:190%" />
+
+<img class="helium" src="testAssets/inflation5.png"  data-_inflationstart-200="transform:scale(0) rotate(0deg); left:34%; top:55%" 
+												data-_inflationstart-3600="transform:scale(9) rotate(-733deg); left:55%; top:222%" />
+
+<img class="helium" src="testAssets/inflation2.png"  data-_inflationstart="transform:scale(0) rotate(0deg); left:34%; top:12%" 
+												data-_inflationstart-1000="transform:scale(12) rotate(-833deg); left:-55%; top:120%" />	
+
+
+
+
+<img class="gradientBurst" src="yellowGrad.png"   data-0="display:none;" data-_yellowballstart-1="display:block;"
+												data-_yellowballstart="transform:scale(0);"  data-_yellowballstart-1000="transform:scale(.1);"  
+												data-_yellowballstart-1005="transform:scale(.1);"  data-_yellowballstart-1930="transform:scale(22);" 
+												data-_yellowballstart-1941="display:block;" data-_yellowballstart-1992="display:none;" />
+
+<img class="gradientBurst" src="blackGrad.png"    data-0="display:none;" data-_blackballstart-1="display:block;"
+												data-_blackballstart="transform:scale(0);"  data-_blackballstart-550="transform:scale(22);" 
+												data-_blackballstart-551="display:block;" data-_blackballstart-552="display:none;" />
+
+
+<div id="firstSceneHolder">
+	<div id="cosmicQuestionsHolderHolder">
+		<div id="cosmicQuestionsHolder" data-0="top:0px;" data-1000="top:300px">
+			<div id="cosmicTxt">COSMIC</div>
+			<div id="cosmicQuestionsHeader">QUESTIONS</div>
+		</div>
+	</div>
+	<div id="cosmicQuestionsRedLine" data-400="right:0%;" data-1300="right:300%"></div>
+	<div id="cosmicQuestionsTxtHolder">
+		<div id="cosmicQuestionsTxt" data-0="top:1.1em;" data-1000="top:-22em">Aquam eium aliquiatias sequam, sum seque id eligeni tiumquostrum quam doleces eos denissu nturem aut ditia doluptat. Atempellic to quias nimus dolorum fugia in rem. Os estibusdam accus. Dite et voluptur? Voleste ntiunt possimi nvelis pel inias eum accus, si int lia quas aut laborer itaest am, et eaque potion dummy here.</div>
+	</div>
+</div>
+
+<div id="secondSceneHolderHolder" data-550="opacity:0;" data-552="opacity:1;"
+						data-_yellowballstart-1005="opacity:1;" data-_yellowballstart-1140="opacity:0;"    >
+	<div id="secondSceneHolder"  data-750="top:30%;" data-1000="top:10%;">
+		<div id="howWillItEnd"  data-1600="transform:scaleY(1);" data-1900="transform:scaleY(0);"
+								data-1901="transform:scaleY(0);" data-2100="transform:scaleY(1);"
+				>HOW WILL IT END?</div>
+		<div id="howWillItEndTxtHolder">
+			<div id="howWillItEndTxt" data-1001="top:-100%;" data-1500="top:0%;" 
+									data-1600="transform:scale(1);" data-1900="transform:scale(0);" 
+									data-1901="transform:scale(0);" data-2100="transform:scale(1);" 
+				>Most matter in the universe isn’t galaxies or stars, but is dark matter which holds everything together. It is the essential ingredient of the galaxy, provides the infrastructure of all struc- tures in the universe, including our own galaxy. Six times as much of this as any other matter. Scientists don’t think this is made of atoms (or quark), but is a new type of matter completely. Our best idea about this is it’s comprised of a swarm of a new form of elementary</div>
+		</div>
+		<div id="howWillItEndCover" data-500="width:42em;" data-870="width:0em;"></div>
+	</div>
+</div>
+
+<div id="topBar" data-_heliummolestart="top:-7em;" data-_heliummolestart-222="top:0em;"></div>
+
+
+
+<script>
+
+var YELLOW_BALL_EXPLODE_START = 3105;
+		
+$(document).ready(function(){
+		
+	//=====================
+	(function($){
+	 $.fn.handleVideoScroll= function() {
+		console.log("inithandleVideoScroll: " + $(this).css("left"));
+		this.css("background-color", "green");
+		$(window).scroll({elem:this}, onScroll);
+	 };
+	})(jQuery);
+	function onScroll(evtObj){
+		//console.log("this: %o" + this);
+		console.log("onScroll (target): ", evtObj.currentTarget);
+		console.log("onScroll (elem): ", evtObj.data.elem);
+		console.log("onScroll: %d", evtObj.currentTarget.scrollY);
+		//console.log("videoDuration: %d", videoPlayer.duration);
+		//videoPlayer.currentTime = evtObj.currentTarget.scrollY/120;
+	}
+	//======================
+
+	$(".helium").handleVideoScroll();
+
+		//videoPlayer = document.getElementById("videoPlayer");
+		skrollr.init({
+			render: function(data) {
+				//Log the current scroll position.
+				//console.log(data.curTop);
+				onRender(data);
+			},
+			constants:{
+				yellowballstart: 2100,
+				blackballstart: 3550,
+				heliummolestart: 4105,
+				inflationstart: 7500,
+				video1start: 8000
+			}
+		});
+	
+	
+});
+function onRender(_data){
+		console.log(">>>%d", _data.curTop);
+		if (_data.curTop >= 1900){
+			$("#howWillItEndTxt").text("Aquam eium aliquiatias sequam, sum seque id eligeni tiumquostrum quam doleces eos denissu nturem aut ditia doluptat. Atempellic to quias nimus dolorum fugia in rem. Os estibusdam accus. Dite et voluptur? Voleste ntiunt possimi nvelis pel inias eum accus, si int lia quas aut laborer itaest am, et eaque poto quias nimus dolorum fugia in rem.");
+			$("#howWillItEnd").text("HOW DID IT BEGIN?");
+			//videoPlayer.src = "./cube2_crop_b.mp4";
+			//videoPlayer.load();
+			//videoPlayer.play();
+			//console.log(videoPlayer);
+		}
+		else
+		if(_data.curTop < 1900){
+			$("#howWillItEndTxt").text("Most matter in the universe isn’t galaxies or stars, but is dark matter which holds everything together. It is the essential ingredient of the galaxy, provides the infrastructure of all struc- tures in the universe, including our own galaxy. Six times as much of this as any other matter. Scientists don’t think this is made of atoms (or quark), but is a new type of matter completely. Our best idea about this is it’s comprised of a swarm of a new form of elementary");
+			$("#howWillItEnd").text("HOW WILL IT END?");
+		}
+
+		//if (_data.curTop == ) {
+			//code
+		//}
+}
+
+function resize(){
+    //var new_h = $('#containerDiv').width() * 9 / 16;
+	//$('#containerDiv').css('height',  new_h + "px");
+   //$('#container2').css('top',  new_h + "px");
+}
+
+$( window ).resize(function() {
+    //resize();
+});
+
+$( window ).load(function() {
+    resize();
+});
+
+</script>
+
+
+</body>
+
+</html>

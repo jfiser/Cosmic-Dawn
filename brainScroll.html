@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<title>brainScroll</title>
+<script src="./jquery-1.10.2.js"></script>
+<script src="./skrollr.min.js"></script>
+
+<style>
+*
+{
+		margin: 0;
+		padding: 0;
+}
+body, html
+{
+		width:100%;
+		height:100%;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="20%" fx="50%" fy="50%">
+      <stop offset="15%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(125,155,0);stop-opacity:.0" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="200" cy="200" rx="385" ry="385" fill="url(#grad1)" />
+</svg>
+
+
+<script>
+		
+$(document).ready(function(){
+		videoPlayer = document.getElementById("videoPlayer");
+		skrollr.init({
+		render: function(data) {
+			//Log the current scroll position.
+			//console.log(data.curTop);
+			onRender(data);
+		}
+		});
+	
+	
+});
+function onRender(_data){
+		console.log(">>>%d", _data.curTop);
+		if (_data.curTop == 1575){
+				//videoPlayer.src = "./cube2_crop_b.mp4";
+				//videoPlayer.load();
+				//videoPlayer.play();
+				//console.log(videoPlayer);
+		}
+		//if (_data.curTop == ) {
+			//code
+		//}
+}
+
+function resize(){
+    //var new_h = $('#containerDiv').width() * 9 / 16;
+	//$('#containerDiv').css('height',  new_h + "px");
+   //$('#container2').css('top',  new_h + "px");
+}
+
+$( window ).resize(function() {
+    //resize();
+});
+
+$( window ).load(function() {
+    resize();
+});
+
+</script>
+
+
+</body>
+
+</html>
